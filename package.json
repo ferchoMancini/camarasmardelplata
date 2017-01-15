@@ -1,6 +1,6 @@
 {
-  "name": "noderest",
-  "description": "Demo REST API with Node",
+  "name": "live-cams-mdp",
+  "description": "Live cameras Mar del Plata",
   "version": "0.0.1",
   "main": "server.js",
    "engines" : {
@@ -14,6 +14,6 @@
 	"mongoose-auto-increment": "5.0.1",
   "ejs": "2.4.1"
   },
-  "homepage" : "https://fmancini.herokuapp.com/",
+  "homepage" : "https://mardelplata.herokuapp.com/",
   "authors": [ "Fernando Mancini" ]
 }
