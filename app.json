@@ -1,0 +1,8 @@
+{
+  "name": "Generic App IO",
+  "description": "MongoDB with Mongoose on Node.js example",
+  "image": "heroku/nodejs",
+  "repository": "https://bitbucket.org/fernandomancini/mobile-generic-app-io",
+  "keywords": ["node", "mongoose"],
+  "addons": ["mongolab"]
+}
