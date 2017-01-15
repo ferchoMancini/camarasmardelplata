@@ -6,6 +6,7 @@
 
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.js"></script>
+<script src="assets/bootbox/bootbox.min.js"></script>
 
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css">
@@ -76,6 +77,35 @@ $( document ).ready(function() {
   });
 
 });
+
+function sendMessage() {
+  $.ajax({
+   url: '/sendMessage',
+   type: "POST",
+   data: { name: txtName.value, email: txtEmail.value, message: txtMessage.value},
+   success: function(response) {
+     if (response.success) {
+      txtName.value = '';
+      txtEmail.value = '';
+      txtMessage.value = '';
+
+      bootbox.alert(
+        {
+          title: 'Gracias por comunicarte!',
+          message: 'El mensaje ha sido enviado correctamente'
+      });
+     }
+    else {
+      bootbox.alert({
+        title: "Error",
+        message: "- " + response.err.join('</br></br>- ')});
+    }
+   },
+   error: function(response) {
+    alert('Se produjo un error al enviar el mensaje, por favor vuelva a intentar nuevamente en unos momentos.');
+   }
+  });
+}
 
 </script>
 
@@ -170,7 +200,7 @@ $( document ).ready(function() {
 
 				<div class="grid effect-2 row">
 					<div id="biologia" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="biologia-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -183,7 +213,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="yacht" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="yacht-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -196,7 +226,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="varese" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="varese-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -209,7 +239,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="cabo-corrientes" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="cabo-corrientes-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -222,7 +252,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="honu" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="honu-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -235,7 +265,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="bahia-faro" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="bahia-faro-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -270,7 +300,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="waikiki" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="waikiki-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -283,7 +313,7 @@ $( document ).ready(function() {
 					</div>
 
 					<div id="norte" class="col-md-6 well well-lg">
-						<h3 style="text-align: center">
+						<h3 style="text-align: left">
 							<button id="norte-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
@@ -294,43 +324,10 @@ $( document ).ready(function() {
 							</div>
 						</ua-player>
 					</div>
-
 				</div>
-
-
-
-				<!--
-	<ul class="grid effect-2" id="grid">
-		<li><img alt="portfolio" src="images/grid-image/1.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/2.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/6.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/7.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/1.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/2.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/6.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/2.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
-	</ul>
--->
-
 			</div>
-
 		</div>
 		<!-- works -->
-
-
-
 
 		<!-- sources -->
 		<div class="testimonials-bg">
@@ -388,18 +385,34 @@ $( document ).ready(function() {
 			<div class="row">
 				<div class="col-sm-offset-3 col-sm-6 contact-form">
 					<h3><i class="fa fa-comment text-info"></i> Contacto</h3>
-					<form>
-						<input type="text" name="form_name" class="form-control" placeholder="Nombre">
-						<input type="email" name="form_email" class="form-control" placeholder="Email">
-						<textarea name="form_message" class="form-control" placeholder="Mensaje" rows="5"></textarea>
-						<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Enviar">
-					</form>
+						<input type="text" id="txtName" name="txtName" class="form-control" placeholder="Nombre">
+						<input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email">
+						<textarea name="txtMessage" id="txtMessage" class="form-control" placeholder="Mensaje" rows="5"></textarea>
+            <input type="button" class="btn btn-primary btn-lg" value="Enviar" onclick="sendMessage();"></button>
 				</div>
 			</div>
 
 		</div>
+
+
+
 	</div>
 	<!-- contact -->
+
+  <!-- set up the modal to start hidden and fade in and out -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- dialog body -->
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Hello world!
+        </div>
+        <!-- dialog buttons -->
+        <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
+      </div>
+    </div>
+  </div>
 
 
 	<a href="#top" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
