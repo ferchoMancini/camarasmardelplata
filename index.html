@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<title>Mar del Plata</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.js"></script>
+
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css">
+
+<link rel="stylesheet" href="assets/gridloading/css/component.css">
+<link rel="stylesheet" href="assets/animate.css">
+<link rel="stylesheet" href="style.css">
+
+<script type="text/javascript">
+
+var getMap = function(lats, lngs) {
+  var src = "http://maps.googleapis.com/maps/api/staticmap?",
+      params = $.extend({
+        zoom: 14,
+        size: '400x300',
+        maptype: 'roadmap',
+        sensor: false
+      }, {}),
+      query = [];
+
+  $.each(params, function(k, v) {
+    query.push(k + '=' + encodeURIComponent(v));
+  });
+
+  src += query.join('&');
+
+	src = src + "&center=" + lats + "," + lngs;
+	src = src + "&markers=size:mid%7Ccolor:0xff0000%7Clabel:o%7C" + lats + "," + lngs;
+
+  return '<img src="' + src + '" />';
+}
+
+var contentBiologia = getMap(-38.026807,-57.5309459);
+var contentYacht = getMap(-38.031089,-57.5325032);
+var contentVarese = getMap(-38.012886,-57.5313676);
+var contentCaboCorrientes = getMap(-38.016199,-57.5276497);
+var contentHonu = getMap(-38.089044,-57.5430403);
+var contentBahiaFaro = getMap(-38.0863648,-57.5424987);
+var contentWaikiki = getMap(-38.080388,-57.5404817);
+var contentNorte = getMap(-37.9770847,-57.5441754);
+
+$( document ).ready(function() {
+		$('#biologia-map').popover({ trigger:'click', html: true, content: contentBiologia, placement: 'bottom', animation: true, container: '#biologia-map' });
+		$('#yacht-map').popover({ trigger:'click', html: true, content: contentYacht, placement: 'bottom', animation: true, container: '#yacht-map' });
+		$('#varese-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese-map' });
+		$('#cabo-corrientes-map').popover({ trigger:'click', html: true, content: contentCaboCorrientes, placement: 'bottom', animation: true, container: '#cabo-corrientes-map' });
+		$('#honu-map').popover({ trigger:'click', html: true, content: contentHonu, placement: 'bottom', animation: true, container: '#honu-map' });
+		$('#bahia-faro-map').popover({ trigger:'click', html: true, content: contentBahiaFaro, placement: 'bottom', animation: true, container: '#bahia-faro-map' });
+		$('#waikiki-map').popover({ trigger:'click', html: true, content: contentWaikiki, placement: 'bottom', animation: true, container: '#waikiki-map' });
+		$('#norte-map').popover({ trigger:'click', html: true, content: contentNorte, placement: 'bottom', animation: true, container: '#norte-map' });
+
+    $('body').on('click', function (e) {
+      $('[data-toggle="popover"]').each(function () {
+          //the 'is' for buttons that trigger popups
+          //the 'has' for icons within a button that triggers a popup
+          if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+              $(this).popover('hide');
+          }
+      });
+  });
+
+  //Workaround to destroy the popover's DOM element (bootstrap bug, popover destroy/hide is not working)
+  $('body').on('hidden.bs.popover', function() {
+      var popovers = $('.popover').not('.in');
+      if (popovers) {
+          popovers.remove();
+      }
+  });
+
+});
+
+</script>
+
+<style>
+.popover{
+        max-width:600px;
+    }
+</style>
+
+</head>
+
+<body>
+
+	<!-- header -->
+	<div id="top" class="header-bg fullpage">
+		<div class="header fullpage">
+			<div class="container">
+				<div class="absolute-center">
+					<div class="row">
+						<div class="col-sm-7">
+							<h1 class="info animated fadeInDown">
+				<a href="https://www.google.com.ar/maps/place/Mar+del+Plata,+Buenos+Aires/@-38.0174106,-57.6705736,12z/data=!3m1!4b1!4m5!3m4!1s0x9584d94d19d34209:0xdd9670804bfed126!8m2!3d-38.0054771!4d-57.5426106" target="_blank" class="logo">
+					Cámaras<br>en vivo <u>Mar del Plata</u></a>
+				</h1>
+
+							<!-- <a href="http://www.windguru.com/es/index.php?sc=3640" target="_blank" class="btn animated bounceInDown">Ver en vivo</a> -->
+
+							<!-- Split button -->
+							<div class="btn-group">
+								<button type="button" onclick="linkCameras.click();" class="btn btn-lg btn-primary">
+									<a id="linkCameras" href="#camaras" style="color: white;"><i class="fa fa-th-large" style="padding-right: 8px; vertical-align: inherit;"></i>Cámaras</a></button>
+								<button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="caret"></span>
+									<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#biologia"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología - Playa grande</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#yacht"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht - Playa grande</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#varese"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#cabo-corrientes"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Cabo corrientes</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#honu"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#bahia-faro"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Bahia faro - South beach / Guillermo</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#waikiki"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Waikiki</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#norte"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Norte MDP - Puerto Cardiel</a></li>
+								</ul>
+							</div>
+
+						</div>
+
+
+						<div class="col-sm-4 col-sm-offset-1">
+							<div class="connect-icon">
+								<div class="prof-links clearfix animated bounceInUp">
+									<a href="http://www.windguru.com/es/index.php?sc=3640" target="_blank"><img alt="portfolio" src="images/windguru.png" height="48"></a>
+									<a href="https://www.windytv.com/?-38.032,-57.540,13" target="_blank"><img alt="portfolio" src="images/windytv.svg" height="48"></a>
+								</div>
+
+								<div class="social  clearfix  animated bounceInDown">
+									<a href="#"><img alt="portfolio" src="images/facebook.png" width="32"></a>
+									<a href="#"><img alt="portfolio" src="images/twitter.png" width="32"></a>
+									<a href="#"><img alt="portfolio" src="images/instagram.png" width="32"></a>
+									<a href="#"><img alt="portfolio" src="images/pinterest.png" width="32"></a>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header -->
+
+
+	<div class="content-body">
+
+		<!-- cameras -->
+		<div id="works" class="portfolio spacer">
+			<div class="container" style="min-width: 1400px;" id="camaras">
+				<h2 class="center"><i class="glyphicon glyphicon-camera text-info" style="margin-right: 15px;vertical-align: initial;font-size: smaller;"></i>Cámaras en vivo</h2>
+
+				<ul class="grid effect-2" id="grid">
+				</ul>
+
+				<div class="grid effect-2 row">
+					<div id="biologia" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="biologia-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Biología <small style="color: #d9e2ff;"> - Playa Grande </small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe ng-src="http://estadodelmar.com.ar/player/lanormandina" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/lanormandina"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="yacht" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="yacht-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Yacht <small style="color: #d9e2ff;">- Playa Grande </small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe ng-src="http://estadodelmar.com.ar/player/yacht" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/yacht"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="varese" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="varese-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Varese</h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe ng-src="http://estadodelmar.com.ar/player/varese" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/varese"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="cabo-corrientes" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="cabo-corrientes-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Cabo corrientes</h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe ng-src="http://estadodelmar.com.ar/player/cabocorrientes" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/cabocorrientes"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="honu" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="honu-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Honu beach</h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe ng-src="http://estadodelmar.com.ar/player/honubeach" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/honubeach"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="bahia-faro" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="bahia-faro-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Bahia Faro <small style="color: #d9e2ff;">- South Beach / Guillermo </small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+
+								<object type="application/x-shockwave-flash" id="player" data="http://www.freewaves.com.ar/wp-content/themes/freewaves/js/hdw/player/player.swf" width="650px" height="365" style="visibility: visible;">
+									<param name="allowScriptAccess" value="always">
+									<param name="allowFullScreen" value="true">
+									<param name="flashvars" value="&amp;type=rtmp&amp;streamer=rtmp://201.219.100.30:1935/camara-varese/&amp;video=varese.stream&amp;shareDock=false&amp;progressBar=false&amp;volumeDock=false&amp;skinMode=float&amp;autoStart=false">
+								</object>
+								<script>
+									hdwplayer({
+										id: "player",
+										swf: "http://www.freewaves.com.ar/wp-content/themes/freewaves/js/hdw/player/player.swf",
+										width: "100%",
+										height: "392",
+										type: "rtmp",
+										streamer: "rtmp://201.219.100.30:1935/camara-varese/",
+										video: "varese.stream",
+										shareDock: "false",
+										progressBar: "false",
+										volumeDock: "false",
+										skinMode: "float",
+										autoStart: "false"
+									});
+								</script>
+
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="waikiki" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="waikiki-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Waikiki</h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe ng-src="http://estadodelmar.com.ar/player/waikiki" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/waikiki"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="norte" class="col-md-6 well well-lg">
+						<h3 style="text-align: center">
+							<button id="norte-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+							Norte <small style="color: #d9e2ff;">- Puerto Cardiel </small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe src="http://ipcamlive.com/player/player.php?alias=577719082ba64" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+				</div>
+
+
+
+				<!--
+	<ul class="grid effect-2" id="grid">
+		<li><img alt="portfolio" src="images/grid-image/1.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/2.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/6.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/7.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/1.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/2.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/6.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/2.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/3.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInUp"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/4.jpg"><div class="overlay animated fadeIn"><span class="animated bounceIn"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+		<li><img alt="portfolio" src="images/grid-image/5.jpg"><div class="overlay animated fadeIn"><span class="animated fadeInDown"><a href="http://www.thebootstrapthemes.com" target="_blank"><i class="fa fa-link"></i> View Website</a></span></div></li>
+	</ul>
+-->
+
+			</div>
+
+		</div>
+		<!-- works -->
+
+
+
+
+		<!-- sources -->
+		<div class="testimonials-bg">
+			<div class="testimonials center spacer">
+				<div class="container">
+
+					<div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+
+						<div class="carousel-inner">
+
+							<div class="item active animated bounceInRight">
+								<a href="http://www.estadodelmar.com.ar" target="_blank"><span class="animated slideInLeft"><img alt="portfolio" src="images/estado-del-mar.png" width="270"></span></a>
+								<p></p>
+								<span>https://www.facebook.com/estadodelmarOK</span>
+							</div>
+
+							<div class="item  animated bounceInRight">
+								<a href="http://www.freewaves.com.ar" target="_blank"><span class="animated slideInLeft"><img alt="portfolio" src="images/freewaves-logo.svg" width="110"></span></a>
+								<p></p>
+								<span>https://www.facebook.com/freewaves.ar/</span>
+							</div>
+
+							<div class="item  animated bounceInRight">
+								<a href="https://www.windguru.cz/3640" target="_blank"><span class="animated slideInLeft"><img alt="portfolio" src="images/windguru.png" width="150"></span></a>
+								<p></p>
+								<span>https://www.facebook.com/windguru.cz</span>
+							</div>
+
+							<div class="item  animated bounceInRight">
+								<a href="https://www.windytv.com/?-38.032,-57.540,13" target="_blank"><span class="animated slideInLeft"><img alt="portfolio" src="images/windytv.svg" width="70"></span></a>
+								<p></p>
+								<span>https://www.facebook.com/windytv/</span>
+							</div>
+
+						</div>
+
+						<!-- Controls -->
+						<a class="left arrow" href="#carousel-testimonials" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+						<a class="right arrow" href="#carousel-testimonials" data-slide="next"><i class="fa fa-angle-right"></i></a>
+						<!-- Controls -->
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- sources -->
+
+	</div>
+
+
+	<!-- contact -->
+	<div id="contact" class="footer center spacer">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-offset-3 col-sm-6 contact-form">
+					<h3><i class="fa fa-comment text-info"></i> Contacto</h3>
+					<form>
+						<input type="text" name="form_name" class="form-control" placeholder="Nombre">
+						<input type="email" name="form_email" class="form-control" placeholder="Email">
+						<textarea name="form_message" class="form-control" placeholder="Mensaje" rows="5"></textarea>
+						<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Enviar">
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- contact -->
+
+
+	<a href="#top" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
+
+
+	<!-- gridloading script -->
+	<script src="assets/gridloading/js/modernizr.custom.js"></script>
+	<script src="assets/gridloading/js/masonry.pkgd.min.js"></script>
+	<script src="assets/gridloading/js/imagesloaded.js"></script>
+	<script src="assets/gridloading/js/classie.js"></script>
+	<script src="assets/gridloading/js/AnimOnScroll.js"></script>
+	<!-- gridloading script -->
+
+
+	<script src="assets/scripts.js"></script>
+
+
+</body>
+
+</html>
