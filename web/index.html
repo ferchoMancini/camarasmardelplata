@@ -108,12 +108,39 @@ function sendMessage() {
   });
 }
 
+function reorderCamsAsListado() {
+  var cams = $('#divCams').children();
+
+  $.each(cams, function( index, cam ) {
+    $(cam).removeClass();
+    $(cam).addClass("col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view");
+  });
+}
+
+function reorderCamsAsMosaico() {
+  var cams = $('#divCams').children();
+
+  $.each(cams, function( index, cam ) {
+    $(cam).removeClass();
+    $(cam).addClass("col-xs-6 col-md-6 col-lg-6 well well-lg");
+  });
+}
+
+
 </script>
 
 <style type="text/css">
 .popover{
         max-width:600px;
     }
+
+.cam-listed-view {
+  max-width: 750px;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 20px;
+}
+
 </style>
 
 </head>
@@ -194,13 +221,17 @@ function sendMessage() {
 		<!-- cameras -->
 		<div id="works" class="portfolio spacer">
 			<div class="container" style="min-width: 1400px;" id="camaras">
-				<h2 class="center"><i class="glyphicon glyphicon-camera text-info" style="margin-right: 15px;vertical-align: initial;font-size: smaller;"></i>Cámaras en vivo</h2>
+				<h2 class="center"><i class="glyphicon glyphicon-camera text-info" style="margin-right: 15px;vertical-align: initial;font-size: smaller;"></i>
+          Cámaras en vivo
+          <a class="btn btn-default btn-xs" type="button" title="Mosaico" onclick="reorderCamsAsMosaico();"> <i class="glyphicon glyphicon glyphicon-th-large text-primary" style="vertical-align: initial; color: gray;"> </i> </a>
+          <a class="btn btn-default btn-xs" type="button" title="Listado" onclick="reorderCamsAsListado();"> <i class="glyphicon glyphicon-align-justify text-primary" style="vertical-align: initial; color: gray;"> </i> </a>
+        </h2>
 
 				<ul class="grid effect-2" id="grid">
           <li></li>
 				</ul>
 
-				<div class="row">
+				<div id="divCams" class="row">
 					<div id="biologia" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
 						<h3 style="text-align: left">
 							<button id="biologia-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
