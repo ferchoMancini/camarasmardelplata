@@ -78,10 +78,10 @@ $( document ).ready(function() {
   });
 
   //JS script
-  // $('.ls-modal').on('click', function(e){
-  //   e.preventDefault();
-  //   $('#myModal').modal('show').find('.modal-body').load($(this).attr('href'));
-  // });
+  $('.ls-modal').on('click', function(e){
+    e.preventDefault();
+    $('#myModal').modal('show').find('.modal-body').load($(this).attr('href'));
+  });
 
 });
 
@@ -119,7 +119,7 @@ function reorderCamsAsListado() {
 
   $.each(cams, function( index, cam ) {
     $(cam).removeClass();
-    $(cam).addClass("col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view");
+    $(cam).addClass("col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center cam-listed-view text-center");
   });
 }
 
@@ -128,7 +128,7 @@ function reorderCamsAsMosaico() {
 
   $.each(cams, function( index, cam ) {
     $(cam).removeClass();
-    $(cam).addClass("col-xs-6 col-md-6 col-lg-6 well well-lg");
+    $(cam).addClass("col-xs-6 col-md-6 col-lg-6 well well-lg text-center");
   });
 }
 
@@ -237,23 +237,14 @@ function reorderCamsAsMosaico() {
           <li></li>
 				</ul>
 
-        <!-- Modal -->
-        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="min-width: 600px;">
-                <div class="modal-content">
-                    <div class="modal-body"><div class="te"></div></div>
-                </div>
-            </div>
-        </div> -->
-
 				<div id="divCams" class="row">
-					<div id="biologia" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="biologia" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="biologia-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a id="biologia-map" href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
-							  <img src="http://touch.windguru.cz/images/windguru_final2-huri.png" style="max-width: 30px">
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Biología <small style="color: #d9e2ff;"> - Playa Grande </small> </h3>
 						<ua-player class="ng-isolate-scope">
@@ -263,11 +254,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="yacht" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="yacht" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="yacht-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Yacht <small style="color: #d9e2ff;">- Playa Grande </small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -276,11 +270,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="varese" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="varese" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="varese-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Varese</h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -289,11 +286,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="cabo-corrientes" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="cabo-corrientes" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="cabo-corrientes-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Cabo corrientes</h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -302,11 +302,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="honu" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="honu" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="honu-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Honu beach</h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -315,11 +318,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="bahia-faro" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="bahia-faro" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="bahia-faro-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Bahia Faro <small style="color: #d9e2ff;">- South Beach / Guillermo </small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -350,11 +356,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="waikiki" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="waikiki" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="waikiki-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Waikiki</h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -363,11 +372,14 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="norte" class="col-xs-12 col-md-12 col-lg-6 well well-lg">
-						<h3 style="text-align: left">
+					<div id="norte" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
 							<button id="norte-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
+              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
 							Norte <small style="color: #d9e2ff;">- Puerto Cardiel </small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
@@ -452,15 +464,13 @@ function reorderCamsAsMosaico() {
 
   <!-- set up the modal to start hidden and fade in and out -->
   <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 800px;">
       <div class="modal-content">
         <!-- dialog body -->
         <div class="modal-body">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           Hello world!
         </div>
-        <!-- dialog buttons -->
-        <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
       </div>
     </div>
   </div>
