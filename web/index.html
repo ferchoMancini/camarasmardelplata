@@ -7,6 +7,7 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.js"></script>
 <script src="assets/bootbox/bootbox.min.js"></script>
+<script src="http://widget.windguru.cz/js/wg_widget.php" type="text/javascript"></script>
 
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css">
@@ -52,6 +53,7 @@ var contentWaikiki = getMap(-38.080388,-57.5404817);
 var contentNorte = getMap(-37.9770847,-57.5441754);
 
 $( document ).ready(function() {
+
 		$('#biologia-map').popover({ trigger:'click', html: true, content: contentBiologia, placement: 'bottom', animation: true, container: '#biologia-map' });
 		$('#yacht-map').popover({ trigger:'click', html: true, content: contentYacht, placement: 'bottom', animation: true, container: '#yacht-map' });
 		$('#varese-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese-map' });
@@ -69,6 +71,22 @@ $( document ).ready(function() {
               $(this).popover('hide');
           }
       });
+
+      WgWidget({
+        s: 3640, odh:0, doh:24, wj:'knots', tj:'c', waj:'m', fhours:72, lng:'es',
+        params: ['WINDSPD','GUST','SMER','TMPE','CDC','APCPs'],
+        first_row:true,
+        spotname:true,
+        first_row_minfo:true,
+        last_row:true,
+        lat_lon:true,
+        tz:true,
+        sun:true,
+        link_archive:false,
+        link_new_window:false
+        },
+        'wg_target_div_3640_10403151'
+      );
   });
 
   //Workaround to destroy the popover's DOM element (bootstrap bug, popover destroy/hide is not working)
@@ -82,7 +100,7 @@ $( document ).ready(function() {
   //JS script
   $('.ls-modal').on('click', function(e){
     e.preventDefault();
-    $('#myModal').modal('show').find('.modal-body').load($(this).attr('href'));
+    $('#myModal').modal('show');
   });
 
 });
@@ -245,7 +263,7 @@ function reorderCamsAsMosaico() {
 							<button id="biologia-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Biología <small style="color: #d9e2ff;"> - Playa Grande </small> </h3>
@@ -261,7 +279,7 @@ function reorderCamsAsMosaico() {
 							<button id="yacht-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Yacht <small style="color: #d9e2ff;">- Playa Grande </small> </h3>
@@ -277,7 +295,7 @@ function reorderCamsAsMosaico() {
 							<button id="varese-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Varese</h3>
@@ -293,7 +311,7 @@ function reorderCamsAsMosaico() {
 							<button id="cabo-corrientes-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Cabo corrientes</h3>
@@ -309,7 +327,7 @@ function reorderCamsAsMosaico() {
 							<button id="honu-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Honu beach</h3>
@@ -325,7 +343,7 @@ function reorderCamsAsMosaico() {
 							<button id="bahia-faro-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Bahia Faro <small style="color: #d9e2ff;">- South Beach / Guillermo </small> </h3>
@@ -363,7 +381,7 @@ function reorderCamsAsMosaico() {
 							<button id="waikiki-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Waikiki</h3>
@@ -379,7 +397,7 @@ function reorderCamsAsMosaico() {
 							<button id="norte-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
-              <a href="windguru-content.html" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
 							Norte <small style="color: #d9e2ff;">- Puerto Cardiel </small> </h3>
@@ -469,11 +487,16 @@ function reorderCamsAsMosaico() {
     <div class="modal-dialog" style="width: 800px;">
       <div class="modal-content">
         <!-- dialog body -->
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Powered by Windguru</h4>
+        </div>
         <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <div id="overlay" style="width: 100%; text-align: center;">
-            <img id="loadingImg" src="images/loading-spinner.gif" />
-          </div>
+            <div id="wg_target_div_3640_10403151"></div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
