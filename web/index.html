@@ -54,9 +54,12 @@ var contentNorte = getMap(-37.9770847,-57.5441754);
 
 $( document ).ready(function() {
 
-		$('#biologia-map').popover({ trigger:'click', html: true, content: contentBiologia, placement: 'bottom', animation: true, container: '#biologia-map' });
-		$('#yacht-map').popover({ trigger:'click', html: true, content: contentYacht, placement: 'bottom', animation: true, container: '#yacht-map' });
-		$('#varese-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese-map' });
+		$('#biologia1-map').popover({ trigger:'click', html: true, content: contentBiologia, placement: 'bottom', animation: true, container: '#biologia1-map' });
+    $('#biologia2-map').popover({ trigger:'click', html: true, content: contentBiologia, placement: 'bottom', animation: true, container: '#biologia2-map' });
+		$('#yacht1-map').popover({ trigger:'click', html: true, content: contentYacht, placement: 'bottom', animation: true, container: '#yacht1-map' });
+    $('#yacht2-map').popover({ trigger:'click', html: true, content: contentYacht, placement: 'bottom', animation: true, container: '#yacht2-map' });
+		$('#varese1-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese1-map' });
+    $('#varese2-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese2-map' });
 		$('#cabo-corrientes-map').popover({ trigger:'click', html: true, content: contentCaboCorrientes, placement: 'bottom', animation: true, container: '#cabo-corrientes-map' });
 		$('#honu-map').popover({ trigger:'click', html: true, content: contentHonu, placement: 'bottom', animation: true, container: '#honu-map' });
 		$('#bahia-faro-map').popover({ trigger:'click', html: true, content: contentBahiaFaro, placement: 'bottom', animation: true, container: '#bahia-faro-map' });
@@ -196,11 +199,17 @@ function reorderCamsAsMosaico() {
 									<span class="sr-only">Toggle Dropdown</span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="#biologia"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología - Playa grande</a></li>
+									<li><a href="#biologia1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología - Playa grande / Estado del mar</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#yacht"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht - Playa grande</a></li>
+                  <li><a href="#biologia2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología - Playa grande / Freewaves </a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#varese"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese</a></li>
+									<li><a href="#yacht1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht - Playa grande / Estado del mar</a></li>
+									<li role="separator" class="divider"></li>
+                  <li><a href="#yacht2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht - Playa grande / Freewaves</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#varese1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese - Estado del mar</a></li>
+									<li role="separator" class="divider"></li>
+                  <li><a href="#varese2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese - Freewaves</a></li>
 									<li role="separator" class="divider"></li>
 									<li><a href="#cabo-corrientes"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Cabo corrientes</a></li>
 									<li role="separator" class="divider"></li>
@@ -258,15 +267,15 @@ function reorderCamsAsMosaico() {
 				</ul>
 
 				<div id="divCams" class="row">
-					<div id="biologia" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+					<div id="biologia1" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
-							<button id="biologia-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							<button id="biologia1-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
               <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
-							Biología <small style="color: #d9e2ff;"> - Playa Grande </small> </h3>
+							Biología <small style="color: #d9e2ff;"> - Playa Grande / Estado del mar</small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
 								<iframe ng-src="http://estadodelmar.com.ar/player/lanormandina" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/lanormandina"></iframe>
@@ -274,15 +283,31 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="yacht" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+          <div id="biologia2" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
-							<button id="yacht-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							<button id="biologia2-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
               <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
-							Yacht <small style="color: #d9e2ff;">- Playa Grande </small> </h3>
+							Biología <small style="color: #d9e2ff;"> - Playa Grande / Freewaves</small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<iframe src="http://ipcamlive.com/player/player.php?alias=58bef9b32056c" width="100%" height="365" frameborder="0" allowfullscreen=""></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="yacht1" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
+							<button id="yacht1-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
+							Yacht <small style="color: #d9e2ff;">- Playa Grande / Estado del mar </small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
 								<iframe ng-src="http://estadodelmar.com.ar/player/yacht" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/yacht"></iframe>
@@ -290,18 +315,58 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="varese" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+          <div id="yacht2" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
-							<button id="varese-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							<button id="yacht2-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
               <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
-							Varese</h3>
+							Yacht <small style="color: #d9e2ff;">- Playa Grande / Freewaves</small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+                <object type="application/x-shockwave-flash" id="player" data="http://www.freewaves.com.ar/wp-content/themes/freewaves/js/hdw/player/player.swf" width="100%" height="365" style="visibility: visible;">
+                  <param name="allowScriptAccess" value="always">
+                  <param name="allowFullScreen" value="true">
+                  <param name="flashvars" value="&amp;type=rtmp&amp;streamer=rtmp://201.219.100.30:1935/camara-elyacth/&amp;video=elyacth.stream&amp;shareDock=false&amp;progressBar=false&amp;volumeDock=false&amp;skinMode=float&amp;autoStart=false">
+                </object>
+							</div>
+						</ua-player>
+					</div>
+
+					<div id="varese1" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
+							<button id="varese1-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
+							Varese <small style="color: #d9e2ff;"> - Estado del mar</small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
 								<iframe ng-src="http://estadodelmar.com.ar/player/varese" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/varese"></iframe>
+							</div>
+						</ua-player>
+					</div>
+
+          <div id="varese2" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+						<h3>
+							<button id="varese2-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+							</button>
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+							  <img src="images/windguru-icon.png" style="max-width: 30px">
+							</a>
+							Varese <small style="color: #d9e2ff;"> - Freewaves</small> </h3>
+						<ua-player class="ng-isolate-scope">
+							<div id="ua-player" class="container-ua-player">
+								<object type="application/x-shockwave-flash" id="player" data="http://www.freewaves.com.ar/wp-content/themes/freewaves/js/hdw/player/player.swf" width="100%" height="365" style="visibility: visible;">
+                  <param name="allowScriptAccess" value="always">
+                  <param name="allowFullScreen" value="true">
+                  <param name="flashvars" value="&amp;type=rtmp&amp;streamer=rtmp://201.219.100.30:1935/camara-fw02/&amp;video=fw02.stream&amp;shareDock=false&amp;progressBar=false&amp;volumeDock=false&amp;skinMode=float&amp;autoStart=false">
+                </object>
 							</div>
 						</ua-player>
 					</div>
