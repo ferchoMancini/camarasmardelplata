@@ -189,42 +189,59 @@ function reorderCamsAsMosaico() {
 					Cámaras<br>en vivo <u>Mar del Plata</u></a>
 				</h1>
 
-							<!-- <a href="http://www.windguru.com/es/index.php?sc=3640" target="_blank" class="btn animated bounceInDown">Ver en vivo</a> -->
-
-							<!-- Split button -->
-							<div class="btn-group">
-								<button type="button" onclick="linkCameras.click();" class="btn btn-lg btn-primary">
-									<a id="linkCameras" href="#camaras" style="color: white;"><i class="fa fa-th-large" style="padding-right: 8px; vertical-align: inherit;"></i>Cámaras</a></button>
-								<button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#biologia1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología - Playa grande / Estado del mar</a></li>
-									<li role="separator" class="divider"></li>
-                  <li><a href="#biologia2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología - Playa grande / Freewaves </a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#yacht1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht - Playa grande / Estado del mar</a></li>
-									<li role="separator" class="divider"></li>
-                  <li><a href="#yacht2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht - Playa grande / Freewaves</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#varese1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese - Estado del mar</a></li>
-									<li role="separator" class="divider"></li>
-                  <li><a href="#varese2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese - Freewaves</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#cabo-corrientes"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Cabo corrientes</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#honu1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach</a></li>
-                  <li role="separator" class="divider"></li>
-									<li><a href="#honu2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach Club</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#bahia-faro"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Bahia faro - South beach / Guillermo</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#waikiki"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Waikiki</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#norte"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Norte MDP - Puerto Cardiel</a></li>
-								</ul>
-							</div>
+              <div class="btn-group">
+                <button type="button" onclick="linkCameras.click();" class="btn btn-lg btn-primary">
+                  <a id="linkCameras" href="#camaras" style="color: white;"><i class="fa fa-th-large" style="padding-right: 8px; vertical-align: inherit;"></i>Cámaras</a></button>
+                <button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+          		    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                    <li class="dropdown-submenu" style="padding-right: 30px;">
+                      <a tabindex="-1" href="#"> <i class="glyphicon glyphicon-th-large text-info" style="padding-right: 8px;"> </i> Playa grande</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#biologia1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología / Estado del mar</a></li>
+      									<li role="separator" class="divider"></li>
+                        <li><a href="#biologia2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Biología / Freewaves </a></li>
+                        <li role="separator" class="divider"></li>
+      									<li><a href="#yacht1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht / Estado del mar</a></li>
+      									<li role="separator" class="divider"></li>
+                        <li><a href="#yacht2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Yacht / Freewaves</a></li>
+                      </ul>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-submenu" style="padding-right: 30px;">
+                      <a tabindex="-1" href="#"><i class="glyphicon glyphicon-th-large text-info" style="padding-right: 8px;"> </i>Varese</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#varese1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese - Estado del mar</a></li>
+      									<li role="separator" class="divider"></li>
+                        <li><a href="#varese2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Varese - Freewaves</a></li>
+      									<li role="separator" class="divider"></li>
+      									<li><a href="#cabo-corrientes"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Cabo corrientes</a></li>
+                      </ul>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-submenu" style="padding-right: 30px;">
+                      <a tabindex="-1" href="#"><i class="glyphicon glyphicon-th-large text-info" style="padding-right: 8px;"> </i>Sur - Mar del Plata</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#honu1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach</a></li>
+                        <li role="separator" class="divider"></li>
+      									<li><a href="#honu2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach Club</a></li>
+      									<li role="separator" class="divider"></li>
+      									<li><a href="#bahia-faro"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Bahia faro - South beach / Guillermo</a></li>
+      									<li role="separator" class="divider"></li>
+      									<li><a href="#waikiki"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Waikiki</a></li>
+                      </ul>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-submenu" style="padding-right: 30px;">
+                      <a tabindex="-1" href="#"><i class="glyphicon glyphicon-th-large text-info" style="padding-right: 8px;"> </i>Norte - Mar del Plata</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#norte"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Puerto Cardiel</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+              </div>
 
 						</div>
 
