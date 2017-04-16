@@ -61,7 +61,8 @@ $( document ).ready(function() {
 		$('#varese1-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese1-map' });
     $('#varese2-map').popover({ trigger:'click', html: true, content: contentVarese, placement: 'bottom', animation: true, container: '#varese2-map' });
 		$('#cabo-corrientes-map').popover({ trigger:'click', html: true, content: contentCaboCorrientes, placement: 'bottom', animation: true, container: '#cabo-corrientes-map' });
-		$('#honu-map').popover({ trigger:'click', html: true, content: contentHonu, placement: 'bottom', animation: true, container: '#honu-map' });
+		$('#honu1-map').popover({ trigger:'click', html: true, content: contentHonu, placement: 'bottom', animation: true, container: '#honu1-map' });
+    $('#honu2-map').popover({ trigger:'click', html: true, content: contentHonu, placement: 'bottom', animation: true, container: '#honu2-map' });
 		$('#bahia-faro-map').popover({ trigger:'click', html: true, content: contentBahiaFaro, placement: 'bottom', animation: true, container: '#bahia-faro-map' });
 		$('#waikiki-map').popover({ trigger:'click', html: true, content: contentWaikiki, placement: 'bottom', animation: true, container: '#waikiki-map' });
 		$('#norte-map').popover({ trigger:'click', html: true, content: contentNorte, placement: 'bottom', animation: true, container: '#norte-map' });
@@ -213,7 +214,9 @@ function reorderCamsAsMosaico() {
 									<li role="separator" class="divider"></li>
 									<li><a href="#cabo-corrientes"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Cabo corrientes</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#honu"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach</a></li>
+									<li><a href="#honu1"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach</a></li>
+                  <li role="separator" class="divider"></li>
+									<li><a href="#honu2"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Honu beach Club</a></li>
 									<li role="separator" class="divider"></li>
 									<li><a href="#bahia-faro"><i class="glyphicon glyphicon-play-circle text-info" style="padding-right: 8px;"> </i>Bahia faro - South beach / Guillermo</a></li>
 									<li role="separator" class="divider"></li>
@@ -387,23 +390,39 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="honu" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+          <div id="norte" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
-							<button id="honu-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							<button id="norte-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
               <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
-							Honu beach</h3>
+							Norte <small style="color: #d9e2ff;">- Puerto Cardiel </small> </h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
-								<iframe ng-src="http://estadodelmar.com.ar/player/honubeach" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/honubeach"></iframe>
+								<iframe src="http://ipcamlive.com/player/player.php?alias=577719082ba64" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
 							</div>
 						</ua-player>
 					</div>
 
-					<div id="bahia-faro" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+          <div id="waikiki" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+            <h3>
+              <button id="waikiki-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+                <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
+              </button>
+              <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
+                <img src="images/windguru-icon.png" style="max-width: 30px">
+              </a>
+              Waikiki</h3>
+            <ua-player class="ng-isolate-scope">
+              <div id="ua-player" class="container-ua-player">
+                <iframe ng-src="http://estadodelmar.com.ar/player/waikiki" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/waikiki"></iframe>
+              </div>
+            </ua-player>
+          </div>
+
+          <div id="bahia-faro" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
 							<button id="bahia-faro-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
@@ -441,37 +460,38 @@ function reorderCamsAsMosaico() {
 						</ua-player>
 					</div>
 
-					<div id="waikiki" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+					<div id="honu1" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
-							<button id="waikiki-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							<button id="honu1-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
               <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
-							Waikiki</h3>
+							Honu beach</h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
-								<iframe ng-src="http://estadodelmar.com.ar/player/waikiki" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/waikiki"></iframe>
+								<iframe ng-src="http://estadodelmar.com.ar/player/honubeach" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/honubeach"></iframe>
 							</div>
 						</ua-player>
 					</div>
 
-					<div id="norte" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
+          <div id="honu2" class="col-xs-12 col-md-12 col-lg-12 well well-lg cam-listed-view text-center">
 						<h3>
-							<button id="norte-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
+							<button id="honu2-map" type="button" class="btn btn-default" style="padding: 4px 8px; vertical-align: bottom;" data-toggle="popover">
 							  <i class="glyphicon glyphicon-map-marker text-danger" style="font-size: large;"></i>
 							</button>
               <a href="#" class="btn btn-default ls-modal" style="padding: 4px 8px; vertical-align: bottom;">
 							  <img src="images/windguru-icon.png" style="max-width: 30px">
 							</a>
-							Norte <small style="color: #d9e2ff;">- Puerto Cardiel </small> </h3>
+							Honu beach Club</h3>
 						<ua-player class="ng-isolate-scope">
 							<div id="ua-player" class="container-ua-player">
-								<iframe src="http://ipcamlive.com/player/player.php?alias=577719082ba64" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+								<iframe ng-src="http://estadodelmar.com.ar/player/honubeach2" width="650px" height="365" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="http://estadodelmar.com.ar/player/honubeach2"></iframe>
 							</div>
 						</ua-player>
 					</div>
+
 				</div>
 			</div>
 		</div>
